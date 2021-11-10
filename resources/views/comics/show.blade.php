@@ -3,7 +3,7 @@
 @section('PageContent')
 <div class="text-center">
     <h1>{{$comic["title"]}}</h1>
-    <h2>{{$comic["series"]}}</h2>
+    <h2>Dalla serie: {{$comic["series"]}}</h2>
     <div class="img m-auto">
         <img src="{{$comic["thumb"]}}" alt="{{$comic["title"]}}">
     </div>
