@@ -5,7 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Comic;
 class ComicController extends Controller
-{
+{   
+    protected $validateRules = [
+        'title' => 'required|max:100',
+        'description' => 'required',
+        'thumb' => 'required|url|max:250',
+        'price' => 'required|numeric|min:00.01|max:99.99',
+        'series' => 'required|max:100',
+        'sale_date' => 'required|date',
+        'type' => 'required|max:100',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -36,6 +45,9 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {   
+        //validazione
+        $request->validate($this->validateRules);
+
         $data = $request->all();
 
         // $newComic = new Comic();
@@ -87,6 +99,9 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        //validazione
+        $request->validate($this->validateRules);
+
         $data = $request->all();
 
         $comic->update($data);
