@@ -29,7 +29,7 @@
               <form action="{{route("comics.destroy", $comic->id)}}" method="POST">
                 @csrf
                 @method("DELETE")
-                <button type="submit" class="btn btn-danger">Elimina</button>
+                <button type="submit" class="btn btn-danger" onclick="return confirm(`Sei sicuro di voler eliminare l'ogetto?`)">Elimina</button>
               </form>
             </td>
         </tr>
